@@ -96,6 +96,14 @@ Group=hanvisuser
 WantedBy=multi-user.target
 ```
 
+Start/Stop or...
+```
+sudo systemctl enable cga_work
+sudo systemctl stop cga_work
+sudo systemctl start cga_work
+sudo systemctl status cga_work
+sudo systemctl restart cga_work
+```
 
 
 ## Using
