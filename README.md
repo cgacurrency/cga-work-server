@@ -59,6 +59,45 @@ Depending on your system configuration and if the OpenCL library cannot be found
 cargo rustc --release -- -l OpenCL -L "/path/to/opencl.lib"`
 ```
 
+
+
+
+
+
+### Bonding
+
+```
+sudo ln -s /home/hanvisuser/cga-work-server/target/release/cga-work-server /usr/local/sbin/cga-work-server
+```
+
+### Service
+
+```
+sudo touch /etc/systemd/system/cga_work.service
+sudo chmod 664 /etc/systemd/system/cga_work.service
+sudo nano /etc/systemd/system/cga_work.service
+```
+
+Add Lines
+
+```
+[Unit]
+Description=CGA WORKER service
+After=network.target
+
+[Service]
+ExecStart=/home/hanvisuser/cga-work-server/target/release/cga-work-server -g 0:0
+LimitNOFILE=65536
+Restart=on-failure
+User=hanvisuser
+Group=hanvisuser
+
+[Install]
+WantedBy=multi-user.target
+```
+
+
+
 ## Using
 
 `cga-work-server --help`
