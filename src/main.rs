@@ -44,8 +44,10 @@ use time::PreciseTime;
 
 use gpu::Gpu;
 
-const LIVE_DIFFICULTY: u64 = 0xfffffff800000000;
-const LIVE_RECEIVE_DIFFICULTY: u64 = 0xfffffe0000000000;
+const LIVE_DIFFICULTY: u64 = 0xffffffc000000000;
+const LIVE_RECEIVE_DIFFICULTY: u64 = 0xffffffc000000000;
+// const LIVE_DIFFICULTY: u64 = 0xfffffff800000000;
+// const LIVE_RECEIVE_DIFFICULTY: u64 = 0xfffffe0000000000;
 
 fn work_value(root: [u8; 32], work: [u8; 8]) -> u64 {
     let mut buf = [0u8; 8];
@@ -429,14 +431,14 @@ impl Service for RpcService {
 fn main() {
     let args = clap::App::new("CGA work server")
         .version("1.0")
-        .author("Albert <albert@hashfun.com>")
+        .author("Lee Bousfield <ljbousfield@gmail.com>, Albert Seo <bbibbi@pm.me>")
         .about("Provides a work server for CGA without a full node.")
         .arg(
             clap::Arg::with_name("listen_address")
                 .short("l")
                 .long("listen-address")
                 .value_name("ADDR")
-                .default_value("[::1]:7133")
+                .default_value("0.0.0.0:7133")
                 .help("Specifies the address to listen on."),
         )
         .arg(
