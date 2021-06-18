@@ -1,7 +1,7 @@
 [package]
 name = "cga-work-server"
-version = "0.2.1"
-authors = ["Lee Bousfield <ljbousfield@gmail.com>"]
+version = "0.1.0"
+authors = ["Lee Bousfield <ljbousfield@gmail.com>", "Albert Seo <bbibbi@pm.me>"]
 license = "BSD-2-Clause"
 repository = "https://github.com/cgacurrency/cga-work-server"
 description = "A dedicated work server for the CGA cryptocurrency"

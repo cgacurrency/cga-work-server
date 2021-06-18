@@ -1,19 +1,14 @@
-# Nano work server
+# CGA work server
 
-![Build](https://github.com/nanocurrency/cga-work-server/workflows/Build/badge.svg)
+This project is a dedicated work server for [CGA cryptocurrency](https://www.cgacoin.net/). See the [documentation](https://docs.cgacoin.net/integration-guides/work-generation/) for details on work generation and the current network difficulty.
 
-This project is a dedicated work server for [the Nano cryptocurrency](https://nano.org/). See the [documentation](https://docs.nano.org/integration-guides/work-generation/) for details on work generation and the current network difficulty.
-
-**cga-work-server** supports the `work_generate`, `work_cancel`, and `work_validate` commands from the Nano RPC.
-For details on these commands, see [the Nano RPC documentation](https://docs.nano.org/commands/rpc-protocol/).
+**cga-work-server** supports the `work_generate`, `work_cancel`, and `work_validate` commands from the CGA RPC.
+For details on these commands, see [CGA RPC documentation](https://docs.cgacoin.net/commands/rpc-protocol/).
 
 To see available command line options, run `cga-work-server --help`.
 
 If using more than one work peer, give the flag `--shuffle`. This makes it so that the next request is picked randomly instead of sequentially, which leads to more efficient work generation with multiple peers, especially when they are not in the same network.
 
-## Current base difficulty
-
-`0xfffffff800000000` since [a75d984](https://github.com/nanocurrency/cga-work-server/commit/a75d98429a11fcb0c129a55380996a612299917b). See the [Nano work generation guide](https://docs.nano.org/integration-guides/work-generation/#difficulty-thresholds) for more information.
 
 ## Installation
 
@@ -48,7 +43,7 @@ Windows: follow instructions in https://www.rust-lang.org/tools/install
 ### Build
 
 ```bash
-git clone https://github.com/nanocurrency/cga-work-server.git
+git clone https://github.com/cgacurrency/cga-work-server.git
 cd cga-work-server
 cargo build --release
 ```
@@ -67,7 +62,7 @@ cargo rustc --release -- -l OpenCL -L "/path/to/opencl.lib"`
 ### Bonding
 
 ```
-sudo ln -s /home/hanvisuser/cga-work-server/target/release/cga-work-server /usr/local/sbin/cga-work-server
+sudo ln -s /home/<user>/cga-work-server/target/release/cga-work-server /usr/local/sbin/cga-work-server
 ```
 
 ### Service
@@ -86,11 +81,11 @@ Description=CGA WORKER service
 After=network.target
 
 [Service]
-ExecStart=/home/hanvisuser/cga-work-server/target/release/cga-work-server -g 0:0
+ExecStart=/home/<user>/cga-work-server/target/release/cga-work-server -g 0:0
 LimitNOFILE=65536
 Restart=on-failure
-User=hanvisuser
-Group=hanvisuser
+User=<user>
+Group=<user>
 
 [Install]
 WantedBy=multi-user.target
