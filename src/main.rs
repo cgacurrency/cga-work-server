@@ -431,7 +431,7 @@ impl Service for RpcService {
 fn main() {
     let args = clap::App::new("CGA work server")
         .version("1.0")
-        .author("Albert <albert@hashfun.com>")
+        .author("Lee Bousfield <ljbousfield@gmail.com>, Albert Seo <bbibbi@pm.me>")
         .about("Provides a work server for CGA without a full node.")
         .arg(
             clap::Arg::with_name("listen_address")
