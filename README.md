@@ -101,6 +101,14 @@ sudo systemctl restart cga_work
 ```
 
 
+## Monitoring
+
+```
+journalctl -u cga_work.service
+```
+
+
+
 ## Using
 
 `cga-work-server --help`
