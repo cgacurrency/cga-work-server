@@ -104,7 +104,7 @@ sudo systemctl restart cga_work
 ## Monitoring
 
 ```
-journalctl -u cga_work.service
+sudo journalctl -u cga_work.service
 ```
 
 
